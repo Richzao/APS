@@ -1,0 +1,81 @@
+---
+tipo: trabalho
+semestre: 2026-1
+disciplina: APS
+status: ativo
+prazo: 2026-05-13
+---
+
+# SGFV - Protótipo React
+
+Protótipo de alta fidelidade do [[APS - Documento de Requisitos - SGFV - v1.1|Sistema de Gerenciamento de Filas Virtuais]] para clínicas de exames laboratoriais.
+
+O projeto implementa uma aplicação React com Vite, TypeScript, dados mockados e navegação por hash para facilitar publicação estática, inclusive em GitHub Pages.
+
+## Como executar
+
+```bash
+npm install
+npm run dev
+```
+
+Para gerar a versão de entrega:
+
+```bash
+npm run build
+```
+
+## Rotas
+
+- `#/login`: tela inicial de autenticação e seleção visual de perfil.
+- `#/paciente`: simulação mobile do paciente Rafael Costa, senha A024.
+- `#/check-in`: registro de chegada e entrada na fila.
+- `#/fila`: acompanhamento da fila em tempo real simulado.
+- `#/operacao`: painel para atendente e médico com chamada do próximo paciente.
+- `#/regras`: configuração de regras de prioridade.
+- `#/auditoria`: histórico de eventos sensíveis.
+
+## Perfis
+
+- Paciente: visão mobile com posição, status, sala provável e tempo previsto.
+- Atendente: check-in, fila e operação.
+- Médico: fila e chamada do próximo paciente.
+- Administrador: operação, regras e auditoria.
+
+## Roteiro de apresentação
+
+1. Abrir `#/login` e mostrar que o sistema começa em uma tela de acesso clara.
+2. Entrar como Paciente para exibir a experiência mobile de Rafael Costa, senha A024.
+3. Destacar a previsão de atendimento calculada pela fila priorizada.
+4. Voltar ao login e entrar como Médico para chamar o próximo paciente no painel operacional.
+5. Entrar como Administrador para mostrar regras e auditoria dos eventos sensíveis.
+
+## Relação com requisitos
+
+| Requisito | Cobertura no protótipo |
+| --- | --- |
+| RF0001 | Tela de login e troca de perfil com permissões visuais. |
+| RF0003 | Registro de check-in com inserção mockada na fila. |
+| RF0004 | Tela de fila e visão mobile com status, posição e tempo de espera. |
+| RF0005 | Ação de chamar próximo paciente no painel operacional. |
+| RF0006 | Ordenação por prioridade, tempo de espera e cálculo de previsão. |
+| RF0009 | Métricas operacionais e atualização periódica simulada. |
+| RF0010 | Tela de regras com ativação visual de critérios. |
+| RF0011 | Notificações simuladas na visão mobile e no check-in. |
+| RF0012 | Tela de auditoria com eventos de acesso, check-in, chamada e regras. |
+
+## Tempo previsto do paciente X
+
+O paciente fixo da demonstração é Rafael Costa, senha A024. A previsão soma a duração estimada dos pacientes antes dele na fila priorizada e adiciona uma margem operacional de 2 minutos. O valor é recalculado quando a fila muda, por exemplo ao chamar o próximo paciente.
+
+## Estrutura
+
+- `src/App.tsx`: componentes, tipos principais, dados mockados e navegação.
+- `src/styles.css`: design system e responsividade.
+- `docs/Documentação de Interface.md`: descrição das telas.
+- `docs/User Flow.md`: fluxo operacional principal.
+- `docs/Guia de Estilo - Design System.md`: tokens e componentes visuais.
+
+## Observações
+
+O protótipo não possui back-end real nesta etapa. A atualização em tempo real é simulada por estado local, preservando a intenção arquitetural descrita em [[APS - Documento de Arquitetura - SGFV - v1.0|Documento de Arquitetura]].
